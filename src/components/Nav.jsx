@@ -13,10 +13,6 @@ function Nav({ page }) {
                                   className={"block py-2 pr-4 pl-3 border-gray-100 hover:text-white border-0 hover:text-primary-700 p-0" + (page === 'subject' ? ' text-white' : ' text-gray-400')}>Subject</Link>
                         </li>
                         <li>
-                            <Link to="/testsuite"
-                                  className={"block py-2 pr-4 pl-3 border-gray-100 hover:text-white border-0 hover:text-primary-700 p-0" + (page === 'testsuite' ? ' text-white' : ' text-gray-400')} >Testsuite</Link>
-                        </li>
-                        <li>
                             <Link to="/correction"
                                   className={"block py-2 pr-4 pl-3 border-gray-100 hover:text-white border-0 hover:text-primary-700 p-0" + (page === 'correction' ? ' text-white' : ' text-gray-400')}>Correction</Link>
                         </li>
