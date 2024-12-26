@@ -2,6 +2,7 @@
   "name": "gabriel-le-gris-lessons",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -30,11 +31,5 @@
     "react-router-dom": "^6.23.1",
     "tailwindcss": "^3.4.4",
     "vite": "^5.2.0"
-  },
-  
-  "build": {
-    "env": {
-      "NODE_VERSION": "20.18.0"
-    }
   }
 }
