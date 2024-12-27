@@ -6,6 +6,8 @@ import AdvancedSection from "./AdvancedSection";
 import Nav from "../components/Nav";
 import IntroductionSection from "./IntroductionSection";
 import SubjectNav from "../components/SubjectNav.jsx";
+import FundamentalsSection from "./FundamentalsSection.jsx";
+import ProficienciesSection from "./ProficienciesSection.jsx";
 
 const Redirect = () => { window.location.href = '/error'; return null; }
 function SubjectPage() {
@@ -15,9 +17,11 @@ function SubjectPage() {
             <Nav page="subject"/>
             <div className={"h-8"}/>
             <IntroductionSection/>
-            <CoreSection/>
-            <IntermediateSection/>
-            <AdvancedSection/>
+            <FundamentalsSection/>
+            <ProficienciesSection/>
+            {/*<CoreSection/>*/}
+            {/*<IntermediateSection/>*/}
+            {/*<AdvancedSection/>*/}
             {/*<Routes>*/}
             {/*    <Route index={true} element={<IntroductionSection/>}/>*/}
             {/*    <Route path="/core/" element={<CoreSection/>}/>*/}

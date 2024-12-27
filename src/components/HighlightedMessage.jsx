@@ -1,5 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle, faThumbsUp, faThumbsDown, faTriangleExclamation, faDesktop, faBookOpen} from '@fortawesome/free-solid-svg-icons';
+import {
+    faInfoCircle,
+    faThumbsUp,
+    faThumbsDown,
+    faTriangleExclamation,
+    faDesktop,
+    faBookOpen,
+    faCode
+} from '@fortawesome/free-solid-svg-icons';
 
 function HelpMessage({children}) {
     return (
@@ -97,4 +105,20 @@ function HistoryMessage({children}) {
     );
 }
 
-export { HelpMessage, AllowedMessage, ForbiddenMessage, WarningMessage, TestMessage, HistoryMessage };
+function PrototypeMessage({children}) {
+    return (
+        <div className="my-4">
+            <div className="-mb-2">
+            <span className="bg-red-950 px-2 py-1 rounded-xl text-white font-semibold text-xl">
+                <FontAwesomeIcon icon={faCode} className="mr-1" />
+                Prototype
+            </span>
+            </div>
+            <div className="bg-stone-300 rounded-lg p-4">
+                {children}
+            </div>
+        </div>
+    );
+}
+
+export { HelpMessage, AllowedMessage, ForbiddenMessage, WarningMessage, TestMessage, HistoryMessage, PrototypeMessage };

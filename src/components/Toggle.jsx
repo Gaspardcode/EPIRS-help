@@ -2,9 +2,8 @@ import React, {useState} from "react";
 
 const colors = {
     'info': 'bg-blue-900',
-    'core': 'bg-green-900',
-    'intermediate': 'bg-yellow-900',
-    'advanced': 'bg-red-900',
+    'fundamentals': 'bg-green-900',
+    'proficiencies': 'bg-red-900',
     'correction': 'bg-purple-900',
 }
 

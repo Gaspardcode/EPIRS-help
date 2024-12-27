@@ -11,7 +11,7 @@ const Redirect = () => { window.location.href = '/error'; return null; }
 function App() {
     document.title = "Winter Preparation";
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen text-xl">
             <Header/>
             <Routes>
                 <Route index={true} element={<SubjectPage/>}/>
