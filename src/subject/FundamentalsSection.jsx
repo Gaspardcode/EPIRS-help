@@ -204,7 +204,7 @@ function JokerCardPart()
                 <P>La pénalité doit être un multiple de 2 et ne doit pas être supérieure (strict) à 8.</P>
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
-                        {`public class UnoException : Exception { }`}
+                        {`public JokerCard(ushort penalty) { }`}
                     </CodeBlock>
                 </PrototypeMessage>
                 
