@@ -8,7 +8,7 @@ import ProficienciesSection from "./ProficienciesSection.jsx";
 
 const Redirect = () => { window.location.href = '/error'; return null; }
 function SubjectPage() {
-    document.title = "Subject | WinterPreparation";
+    document.title = "Subject | UnoAdventure";
     return (
         <>
             <Nav page="subject"/>
