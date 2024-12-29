@@ -233,7 +233,7 @@ function PlayerPart()
                 <P><u>La classe <Code>Player</Code> doit avoir les propriétés suivantes :</u></P>
                 <UL>
                     <li>Une propriété <b>publique</b> <Code>Name</Code> de type <Code>string</Code> qui représente le nom du joueur (n'ayant qu'un getter).</li>
-                    <li>Une propriété <b>publique</b> <Code>Hand</Code> de type <Code>Card[]</Code> qui représente la main du joueur (ayant un getter et unn setter).</li>
+                    <li>Une propriété <b>publique</b> <Code>Hand</Code> de type <Code>Card[]</Code> qui représente la main du joueur (ayant un getter et un setter).</li>
                     <li>Une propriété <b>publique</b> <Code>NbCards</Code> de type <Code>ushort</Code> n'ayant qu'un getter qui doit renvoyer le nombre de cartes que le joueur a dans sa main.</li>
                 </UL>
                 <HelpMessage>
@@ -421,7 +421,7 @@ function GamePart()
                     <li>Une propriété <b>publique</b> <Code>Deck</Code> de type <Code>{`List<Card>`}</Code> qui représente le paquet de cartes de la partie.</li>
                     <li>Une propriété <b>publique</b> <Code>DiscardPile</Code> de type <Code>{`Stack<Card>`}</Code> qui représente la pile de défausse de la partie.</li>
                 </UL>
-                <P>Chacune des propriétés doit avoir un getter public et setter privé, à l'exception de <Code>Dexk</Code> qui doit avoir un getter public et un setter public.</P>
+                <P>Chacune des propriétés doit avoir un getter public et setter privé, à l'exception de <Code>Deck</Code> qui doit avoir un getter public et un setter public.</P>
             </Toggle>
                 
                 {/* public GameManager() */}
