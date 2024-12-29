@@ -14,7 +14,6 @@ function IntroductionSection() {
               <Consignes/>
               <Architecture/>
           </section>
-          {/*<SubjectNav currentIndex={0}/>*/}
       </>
 
   );

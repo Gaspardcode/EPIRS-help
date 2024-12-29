@@ -3,7 +3,7 @@ import Toggle from "../components/Toggle.jsx";
 import CodeBlock from "../components/CodeBlock.jsx";
 
 function CorrectionPage() {
-    document.title = "Correction | WinterPreparation";
+    document.title = "Correction | UnoAdventure";
   return (
       <>
           <Nav page="correction"/>

@@ -227,7 +227,6 @@ function PlayerPart()
     return (
         <section className="w-full py-4">
             <h3 className="text-4xl"><Code>Player.cs</Code></h3>
-            {/* PROPERTIES */}
             <Toggle title="Propriétés" color={"fundamentals"}>
                 <P>Ici, nous allons définir une classe <Code>Player</Code> qui représente un joueur de Uno.</P>
                 <div className="my-4"/>
@@ -242,7 +241,6 @@ function PlayerPart()
                 </HelpMessage>
             </Toggle>
             
-            {/* CONSTRUCTOR */}
             <Toggle title="Constructeur" color={"fundamentals"}>
                 <P>La classe <Code>Player</Code> doit avoir un constructeur qui initialise le <Code>Name</Code> à partir du <Code>name</Code> passé en paramètre.</P>
                 <div className="my-4"/>
@@ -262,7 +260,6 @@ Console.WriteLine(player.NbCards); // Affiche 0`}
                 </TestMessage>
             </Toggle>
             
-            {/* public Dictionary<ColorEnum, ushort> GetNumberOfCardsByColor() */}
             <Toggle title="GetNumberOfCardsByColor" color={"fundamentals"}>
                 <P>La classe <Code>Player</Code> doit avoir une méthode <Code>GetNumberOfCardsByColor</Code> qui retourne un dictionnaire contenant le nombre de cartes de chaque couleur que le joueur possède.</P>
                 <P>Les clés du dictionnaire sont les couleurs des cartes et les valeurs associées sont le nombre de cartes de cette couleur.</P>
@@ -285,7 +282,6 @@ Console.WriteLine(cardsByColor[ColorEnum.ColorYellow]); // Affiche 0`}
                 </TestMessage>
             </Toggle>
             
-            {/* public ColorEnum GetBestColor() */}
             <Toggle title="GetBestColor" color={"fundamentals"}>
                 <P>La classe <Code>Player</Code> doit avoir une méthode <Code>GetBestColor</Code> qui retourne la couleur la plus présente dans la main du joueur.</P>
                 <P>Si le joueur a autant de cartes de chaque couleur, la méthode doit retourner la couleur avec la plus petite valeur associée (rien à voir avec les valeurs des cartes). Souvenez-vous, nous avons associé des valeurs à nos couleurs: 0 pour vert, 1 pour rouge, 2 pour bleu et 3 pour jaune.</P>
@@ -299,12 +295,15 @@ Console.WriteLine(cardsByColor[ColorEnum.ColorYellow]); // Affiche 0`}
                     <CodeBlock language="language-csharp">
                         {`Player player = new Player("Alice");
 player.Hand = new Card[] { new BasicCard("7", ColorEnum.ColorRed), new SpecialCard("Reverse", ColorEnum.ColorBlue) };
-Console.WriteLine(player.GetBestColor()); // Affiche ColorRed`}
+Console.WriteLine(player.GetBestColor()); // Affiche ColorRed
+
+Player player2 = new Player("Bob");
+player2.Hand = new Card[] { new SpecialCard("PickTwo", ColorEnum.ColorRed), new BasicCard("7", ColorEnum.ColorBlue), new BasicCard("8", ColorEnum.ColorBlue) };
+Console.WriteLine(player2.GetBestColor()); // Affiche ColorBlue`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>
             
-            {/* public List<Card>[] GetCardsByColor() */}
             <Toggle title="GetCardsByColor" color={"fundamentals"}>
                 <P>La classe <Code>Player</Code> doit avoir une méthode <Code>GetCardsByColor</Code> qui retourne un tableau de listes de cartes. Chaque liste de cartes représente les cartes d'une couleur.</P>
                 <P>Les listes doivent être ordonnées par leur valeur (ColorEnum). Le tableau doit être de taille 5 car il y a 4 couleurs et une liste pour les cartes joker.</P>
@@ -317,12 +316,12 @@ Console.WriteLine(player.GetBestColor()); // Affiche ColorRed`}
                 <TestMessage>
                     <CodeBlock language="language-csharp">
                         {`Player player = new Player("Alice");
-player.Hand = new Card[] { new BasicCard("7", ColorEnum.ColorRed), new SpecialCard("Reverse", ColorEnum.ColorBlue), new JokerCard(4) };
+player.Hand = new Card[] { new BasicCard("7", ColorEnum.ColorRed), new BasicCard("2", ColorEnum.ColorRed), new SpecialCard("Reverse", ColorEnum.ColorBlue), new JokerCard(4) };
 List<Card>[] cardsByColor = player.GetCardsByColor();
-Console.WriteLine(cardsByColor[ColorEnum.ColorRed].Count); // Affiche 1
-Console.WriteLine(cardsByColor[ColorEnum.ColorBlue].Count); // Affiche 1
-Console.WriteLine(cardsByColor[ColorEnum.ColorGreen].Count); // Affiche 0
-Console.WriteLine(cardsByColor[ColorEnum.ColorYellow].Count); // Affiche 0
+Console.WriteLine(cardsByColor[(int)ColorEnum.ColorRed].Count); // Affiche 2
+Console.WriteLine(cardsByColor[(int)ColorEnum.ColorBlue].Count); // Affiche 1
+Console.WriteLine(cardsByColor[(int)ColorEnum.ColorGreen].Count); // Affiche 0
+Console.WriteLine(cardsByColor[(int)ColorEnum.ColorYellow].Count); // Affiche 0
 Console.WriteLine(cardsByColor[4].Count); // Affiche 1`}
                     </CodeBlock>
                 </TestMessage>
@@ -358,9 +357,9 @@ String.Compare("Reverse", "7", StringComparison.Ordinal); // Retourne un entier 
                 <TestMessage>
                     <CodeBlock language="language-csharp">
                         {`Player player = new Player("Alice");
-List<Card> cards = new List<Card> { new BasicCard("7", ColorEnum.ColorRed), new BasicCard("Reverse", ColorEnum.ColorBlue), new BasicCard("2", ColorEnum.ColorRed) };
-Console.WriteLine(player.GetMaxIndexCard(0)); // Affiche 1
-Console.WriteLine(player.GetMaxIndexCard(1)); // Affiche 1`}
+List<Card> cards = new List<Card> { new BasicCard("7", ColorEnum.ColorRed), new SpecialCard("Reverse", ColorEnum.ColorRed), new BasicCard("2", ColorEnum.ColorRed) };
+Console.WriteLine(player.GetMaxIndexCard(cards, 0)); // Affiche 1
+Console.WriteLine(player.GetMaxIndexCard(cards, 2)); // Affiche 2`}
                     </CodeBlock>
                 </TestMessage>
                 <PrototypeMessage>
@@ -372,7 +371,7 @@ Console.WriteLine(player.GetMaxIndexCard(1)); // Affiche 1`}
                 <TestMessage>
                     <CodeBlock language="language-csharp">
                         {`Player player = new Player("Alice");
-List<Card> cards = new List<Card> { new BasicCard("7", ColorEnum.ColorRed), new BasicCard("Reverse", ColorEnum.ColorBlue), new BasicCard("2", ColorEnum.ColorRed) };
+List<Card> cards = new List<Card> { new BasicCard("7", ColorEnum.ColorRed), new SpecialCard("Reverse", ColorEnum.ColorRed), new BasicCard("2", ColorEnum.ColorRed) };
 player.SortCardsWithSameColor(cards);
 Console.WriteLine(cards[0].GetCardValue()); // Affiche "Reverse"
 Console.WriteLine(cards[1].GetCardValue()); // Affiche "7"
@@ -380,28 +379,6 @@ Console.WriteLine(cards[2].GetCardValue()); // Affiche "2"`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>
-
-            {/*  public void SortHand()  */}
-            {/*  List<Card>[] cardsByColor = GetCardsByColor();
-
-        foreach (List<Card> cards in cardsByColor)
-            SortCardsWithSameColor(cards);
-        
-        Card[] newHand = new Card[NbCards];
-        int index = 0;
-        
-        foreach (List<Card> cards in cardsByColor)
-        {
-            foreach (Card card in cards)
-            {
-                newHand[index++] = card;
-                // newHand[index] = card;
-                // index++;
-            }
-        }
-        
-        Hand = newHand;
-  */}
 
             <Toggle title="SortHand" color={"fundamentals"}>
                 <P>La classe <Code>Player</Code> doit avoir une méthode <Code>SortHand</Code> qui trie la main du joueur par couleur et par valeur décroissante.</P>
@@ -418,11 +395,11 @@ Console.WriteLine(cards[2].GetCardValue()); // Affiche "2"`}
                 <TestMessage>
                     <CodeBlock language="language-csharp">
                         {`Player player = new Player("Alice");
-player.Hand = new Card[] { new BasicCard("7", ColorEnum.ColorRed), new BasicCard("Reverse", ColorEnum.ColorBlue), new BasicCard("2", ColorEnum.ColorRed) };
+player.Hand = new Card[] { new BasicCard("7", ColorEnum.ColorRed), new SpecialCard("Reverse", ColorEnum.ColorBlue), new BasicCard("2", ColorEnum.ColorRed) };
 player.SortHand();
-Console.WriteLine(player.Hand[0].GetCardValue()); // Affiche "Reverse"
+Console.WriteLine(player.Hand[0].GetCardValue()); // Affiche "7"
 Console.WriteLine(player.Hand[1].GetCardValue()); // Affiche "2"
-Console.WriteLine(player.Hand[2].GetCardValue()); // Affiche "7"`}
+Console.WriteLine(player.Hand[2].GetCardValue()); // Affiche "Reverse"`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>
@@ -444,7 +421,7 @@ function GamePart()
                     <li>Une propriété <b>publique</b> <Code>Deck</Code> de type <Code>{`List<Card>`}</Code> qui représente le paquet de cartes de la partie.</li>
                     <li>Une propriété <b>publique</b> <Code>DiscardPile</Code> de type <Code>{`Stack<Card>`}</Code> qui représente la pile de défausse de la partie.</li>
                 </UL>
-                <P>Chacune des propriétés doit avoir un getter public et setter privé.</P>
+                <P>Chacune des propriétés doit avoir un getter public et setter privé, à l'exception de <Code>Dexk</Code> qui doit avoir un getter public et un setter public.</P>
             </Toggle>
                 
                 {/* public GameManager() */}
@@ -523,9 +500,23 @@ Console.WriteLine(game.Players.Peek().Name); // Affiche "Bob"`}
                 </TestMessage>
             </Toggle>
             
-            {/* public void CreateDeck(Card[] cards) */}
             <Toggle title="CreateDeck" color={"fundamentals"}>
-                <P>Will be done later</P>
+                <P>La classe <Code>GameManager</Code> doit avoir une méthode <Code>CreateDeck</Code> qui initialise le paquet de cartes de la partie.</P>
+                <div className="my-4"/>
+                <P>Le paquet de cartes doit contenir deux exemplaires de toutes les cartes de Uno (4 couleurs de 0 à 9, les cartes spéciales et les jokers).</P>
+                <PrototypeMessage>
+                    <CodeBlock language="language-csharp">
+                        {`public void CreateDeck() { }`}
+                    </CodeBlock>
+                </PrototypeMessage>
+                
+                <TestMessage>
+                    <CodeBlock language="language-csharp">
+                        {`GameManager game = new GameManager();
+game.CreateDeck();
+Console.WriteLine(game.Deck.Count); // Affiche 110`}
+                    </CodeBlock>
+                </TestMessage>
             </Toggle>
         </section>
     );
