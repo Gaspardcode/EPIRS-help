@@ -93,17 +93,16 @@ function SpecialCardPart2()
 
                 <TestMessage>
                     <CodeBlock language="language-csharp">
-                        {`
-Player actualPlayer = new Player("Alice");
+                        {`Player actualPlayer = new Player("Alice");
 actualPlayer.Hand = new Card[] { new BasicCard("7", ColorEnum.ColorRed) };
 Player nextPlayer = new Player("Bob");
 nextPlayer.Hand = new Card[] { new BasicCard("0", ColorEnum.ColorYellow) };
 Queue<Player> players = new Queue<Player>( new List<Player> { nextPlayer, new Player("Charlie") } );
 List<Card> deck = new List<Card> { new BasicCard("6", ColorEnum.ColorRed), new BasicCard("6", ColorEnum.ColorBlue), new BasicCard("6", ColorEnum.ColorGreen) };
-PickTwoCard(actualPlayer, players, deck);
+SpecialCard card = new SpecialCard("PickTwo", ColorEnum.ColorRed);
+card.PickTwoCard(actualPlayer, players, deck);
 // players should be -> Bob, Alice, Charlie ->
-// Bob should have 3 cards in his hand -> 0 yellow, 6 red, 6 blue
-`}
+// Bob should have 3 cards in his hand -> 0 yellow, 6 red, 6 blue`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>
@@ -122,9 +121,10 @@ PickTwoCard(actualPlayer, players, deck);
                     <CodeBlock language="language-csharp">
                         {`Queue<Player> players = new Queue<Player>( new List<Player> { new Player("Alice"), new Player("Bob"), new Player("Charlie") } );
 Player actualPlayer = players.Dequeue();
-SkipCard(actualPlayer, players);
+SpecialCard card = new SpecialCard("Skip", ColorEnum.ColorRed);
+card.SkipCard(actualPlayer, players);
 // players should be -> Bob, Alice, Charlie ->
-`}
+Console.WriteLine();`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>
@@ -143,9 +143,10 @@ SkipCard(actualPlayer, players);
                     <CodeBlock language="language-csharp">
                         {`Queue<Player> players = new Queue<Player>( new List<Player> { new Player("Alice"), new Player("Bob"), new Player("Charlie") } );
 Player actualPlayer = players.Dequeue();
-ReverseCard(actualPlayer, players);
-// players should be -> Charlie, Bob, Alice ->
-`}
+SpecialCard card = new SpecialCard("Reverse", ColorEnum.ColorRed);
+card.ReverseCard(actualPlayer, players);
+// players was -> Charlie, Bob ->
+// players is now -> Alice, Bob, Charlie ->`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>
@@ -158,19 +159,6 @@ ReverseCard(actualPlayer, players);
                         {`public void UseCapacity(Player actualPlayer, Queue<Player> players, List<Card> deck) { }`}
                     </CodeBlock>
                 </PrototypeMessage>
-
-                <TestMessage>
-                    <CodeBlock language="language-csharp">
-                        {`Player actualPlayer = new Player("Alice");
-actualPlayer.Hand = new Card[] { new SpecialCard("PickTwo", ColorEnum.ColorRed) };
-Queue<Player> players = new Queue<Player>( new List<Player> { new Player("Bob"), new Player("Charlie") } );
-List<Card> deck = new List<Card> { new BasicCard("6", ColorEnum.ColorRed), new BasicCard("6", ColorEnum.ColorBlue), new BasicCard("6", ColorEnum.ColorGreen) };
-UseCapacity(actualPlayer, players, deck);
-// players should be -> Bob, Alice, Charlie ->
-// Bob should have 3 cards in his hand -> 6 red, 6 blue, 6 green
-`}
-                    </CodeBlock>
-                </TestMessage>
             </Toggle>
         </section>
     );
@@ -189,20 +177,20 @@ function JokerCardPart2()
 
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
-                        {`public void UseCapacity(Player actualPlayer, Queue<Player> players) { }`}
+                        {`public void UseCapacity(Player actualPlayer, Queue<Player> players), List<Card> deck { }`}
                     </CodeBlock>
                 </PrototypeMessage>
 
                 <TestMessage>
                     <CodeBlock language="language-csharp">
                         {`Queue<Player> players = new Queue<Player>( new List<Player> { new Player("Alice"), new Player("Bob"), new Player("Charlie") } );
+List<Card> deck = new List<Card> { new BasicCard("6", ColorEnum.ColorRed), new BasicCard("6", ColorEnum.ColorBlue), new BasicCard("6", ColorEnum.ColorGreen) };
 Player actualPlayer = players.Dequeue();
-JokerCard jokerCard = new JokerCard();
-jokerCard.Penalty = 2;
-jokerCard.UseCapacity(actualPlayer, players);
+JokerCard jokerCard = new JokerCard(2);
+jokerCard.UseCapacity(actualPlayer, players, deck);
 // players should be -> Bob, Alice, Charlie ->
-// Bob should have 2 cards in his hand
-`}
+// Bob should have 2 cards in his hand -> 6 red, 6 blue
+// deck should have 1 card -> 6 green`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>
@@ -215,36 +203,7 @@ function PlayerPart3()
     return (
         <section className="w-full py-4">
             <h3 className="text-4xl text-red-500"><Code>Player.cs</Code></h3>
-{/*public bool Play(Stack<Card> pile, List<Card> deck, Queue<Player> players, ColorEnum actualColor)
-    {
-        // Regarde sa main de gauche à droite, s'il peut jouer une carte, il la joue
-        // s'il ne peut pas jouer, il pioche une carte
-        // il peut jouer uniquement si la couleur de la carte est identique à actualColor ou que le chiffre est le même que la carte du dessus de la pile ou que la carte est un Joker
-        
-        for (int i = 0; i < NbCards; i++)
-        {
-            if (CanPlay(Hand[i], pile.Peek(), actualColor))
-            {
-                UseCard(Hand[i], pile);
-                switch (Hand[i])
-                {
-                    case BasicCard:
-                        players.Enqueue(this);
-                        break;
-                    case SpecialCard specialCard:
-                        specialCard.UseCapacity(this, players, deck);
-                        break;
-                    case JokerCard jokerCard:
-                        jokerCard.UseCapacity(this, players);
-                        break;
-                }
-                return NbCards == 0;
-            }
-        }
-        DrawCard(deck);
-        return false;
-    }
-*/}
+
             <Toggle title="Play" color="proficiencies">
                 <P>La méthode <Code>Play</Code> prend en paramètre la pile de cartes, le paquet de cartes, la file de joueurs et la couleur actuelle. Elle regarde sa main de gauche à droite, s'il peut jouer une carte, il la joue. S'il ne peut pas jouer, il pioche une carte.</P>
                 <P>Il peut jouer uniquement si la couleur de la carte est identique à la couleur actuelle ou que le chiffre est le même que la carte du dessus de la pile ou que la carte est un Joker.</P>
@@ -259,15 +218,17 @@ function PlayerPart3()
                 <TestMessage>
                     <CodeBlock language="language-csharp">
                         {`Player player = new Player("Alice");
+player.Hand = new Card[] { new BasicCard("6", ColorEnum.ColorBlue) };
 Stack<Card> pile = new Stack<Card>();
 pile.Push(new BasicCard("6", ColorEnum.ColorRed));
 List<Card> deck = new List<Card> { new BasicCard("6", ColorEnum.ColorBlue), new BasicCard("6", ColorEnum.ColorGreen) };
 Queue<Player> players = new Queue<Player>( new List<Player> { new Player("Bob"), new Player("Charlie") } );
 ColorEnum actualColor = ColorEnum.ColorRed;
-player.Play(pile, deck, players, actualColor);
-// players should be -> Bob, Alice, Charlie ->
-// Alice should have 1 card in his hand -> 6 blue
-`}
+bool res = player.Play(pile, deck, players, actualColor);
+// players should be -> Alice, Charlie, Bob ->
+// Alice should have played the card and the pile should have 2 cards
+// Alice should have 0 cards in her hand
+// the function should return true`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>
@@ -294,11 +255,12 @@ function GamePart2()
                 
                 <TestMessage>
                     <CodeBlock language="language-csharp">
-                        {`Player player = new Player("Alice");
-// deck is a list of 9 cards
-deck = new List<Card> { 
-    new BasicCard("1", ColorEnum.ColorRed), 
-    new BasicCard("2", ColorEnum.ColorBlue), 
+                        {`GameManager game = new GameManager();
+
+game.Deck = new List<Card>
+{
+    new BasicCard("1", ColorEnum.ColorRed),
+    new BasicCard("2", ColorEnum.ColorBlue),
     new BasicCard("3", ColorEnum.ColorGreen),
     new BasicCard("4", ColorEnum.ColorYellow),
     new BasicCard("5", ColorEnum.ColorRed),
@@ -306,12 +268,21 @@ deck = new List<Card> {
     new BasicCard("7", ColorEnum.ColorGreen),
     new BasicCard("8", ColorEnum.ColorYellow),
     new BasicCard("9", ColorEnum.ColorRed)
-    );
-}
-player.ShuffleDeck();
+};
+
+game.ShuffleDeck();
+
 // deck should be:
 // done later
-`}
+// 1 ColorRed
+// 3 ColorGreen
+// 5 ColorRed
+// 7 ColorGreen
+// 9 ColorRed
+// 2 ColorBlue
+// 4 ColorYellow
+// 6 ColorBlue
+// 8 ColorYellow`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>
@@ -332,12 +303,12 @@ player.ShuffleDeck();
 player1.Hand = new Card[] { new BasicCard("6", ColorEnum.ColorRed), new BasicCard("6", ColorEnum.ColorBlue), new BasicCard("6", ColorEnum.ColorGreen) };
 Player player2 = new Player("Bob");
 player2.Hand = new Card[] { new SpecialCard("PickTwo", ColorEnum.ColorRed), new SpecialCard("Skip", ColorEnum.ColorBlue), new SpecialCard("Reverse", ColorEnum.ColorGreen) };
-GameManager.Players = new List<Player> { player1, player2 };
-Dictionary<Player,int> points = CountPoints();
-// points should be:
-// Alice -> 18
-// Bob -> 60
-`}
+GameManager game = new GameManager();
+game.AddPlayer(player1);
+game.AddPlayer(player2);
+Dictionary<Player,int> points = game.CountPoints();
+Console.WriteLine(points[player1]); // 18
+Console.WriteLine(points[player2]); // 60`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>
@@ -352,47 +323,6 @@ Dictionary<Player,int> points = CountPoints();
                 </PrototypeMessage>
             </Toggle>
             
-        {/*    public Dictionary<Player,int> PlayGame()
-    {
-        DealCards();
-        DiscardPile = new Stack<Card>();
-        DiscardPile.Push(new BasicCard("0", ColorEnum.ColorYellow));
-        ColorEnum currentColor = ColorEnum.ColorYellow;
-        
-        DiscardPile.Push(Deck[0]);
-        Deck.RemoveAt(0);
-
-        while (true)
-        {
-            while (Deck.Count > 0)
-            {
-                Player currentPlayer = Players.Dequeue();
-                if (currentPlayer.Play(DiscardPile, Deck, Players, currentColor))
-                    return CountPoints();
-                switch (DiscardPile.Peek())
-                {
-                    case BasicCard basicCard:
-                        currentColor = basicCard.Color;
-                        break;
-                    case SpecialCard specialCard:
-                        currentColor = specialCard.Color;
-                        break;
-                    case JokerCard:
-                        currentColor = currentPlayer.GetBestColor();
-                        break;
-                }
-            }
-            Card topCard = DiscardPile.Pop();
-            while (DiscardPile.Count > 0)
-            {
-                Deck.Add(DiscardPile.Pop());
-            }
-            DiscardPile.Push(topCard);
-            ShuffleDeck();
-        }
-    }
-}
-*/}
             <Toggle title="PlayGame" color="proficiencies">
                 La méthode <Code>PlayGame</Code> est la méthode principale du jeu. Elle doit appeler les méthodes créées précédemment pour jouer une partie complète.
                 
