@@ -429,7 +429,7 @@ function GamePart()
                 <P>La classe <Code>GameManager</Code> doit avoir un constructeur qui initialise les propriétés <Code>Players</Code>, <Code>Deck</Code> et <Code>DiscardPile</Code>.</P>
                 <div className="my-4"/>
                 <P>Les joueurs doivent être ajoutés à la file dans l'ordre de leur création.</P>
-                <P>Le paquet de cartes doit être initialisé avec toutes les cartes de Uno (4 couleurs de 0 à 9, les cartes spéciales et les jokers).</P>
+                <P>Le paquet de cartes doit être initialisé vide.</P>
                 <P>La pile de défausse doit être vide à la création.</P>
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
