@@ -188,7 +188,7 @@ function JokerCardPart()
         <section className="w-full py-4">
             <h3 className="text-4xl"><Code>Card/JokerCard.cs</Code></h3>
             <Toggle title="Fields" color={"fundamentals"}>
-                <P>Ici, nous allons définir une classe <Code>JokerCard</Code> qui représente une carte de Uno spéciale (exemple: "Joker" noir).</P>
+                <P>Ici, nous allons définir une classe <Code>JokerCard</Code> qui représente une carte de Uno spéciale (exemple: "Joker").</P>
                 <div className="my-4"/>
                 <P>La classe <Code>JokerCard</Code> doit hériter de <Code>Card</Code>.</P>
                 <div className="my-4"/>
