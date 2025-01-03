@@ -200,7 +200,7 @@ function JokerCardPart()
             <Toggle title="Constructeur" color={"fundamentals"}>
                 <P>La classe <Code>JokerCard</Code> doit avoir un constructeur qui initialise les attributs <Code>Value</Code> et <Code>_penalty</Code> à partir de <Code>penalty</Code> passé en paramètre.</P>
                 <div className="my-4"/>
-                <P>La veleur d'une carte Joker est <Code>{`"Joker{Nb}"`}</Code>.</P>
+                <P>La valeur d'une carte Joker est <Code>{`"Joker{penalty}"`}</Code>.</P>
                 <P>La pénalité doit être un multiple de 2 et ne doit pas être supérieure (strict) à 8.</P>
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
