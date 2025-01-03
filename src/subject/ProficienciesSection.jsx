@@ -314,7 +314,7 @@ Console.WriteLine(points[player2]); // 60`}
             </Toggle>
             
             <Toggle title="DealCards" color="proficiencies">
-                <P>La méthode <Code>DealCards</Code> distribue 7 cartes à chaque joueur. Elle doit appeler la méthode <Code>DrawCard</Code> à chaque fois.</P>
+                <P>La méthode <Code>DealCards</Code> distribue 7 cartes à chaque joueur. Elle doit appeler la méthode <Code>DrawCard</Code> à chaque fois. Les cartes devront être disribuées comme dans la vraie vie. Par exemple si il y a 3 joueurs: 1-2-3-1-2-3-1-...</P>
                 
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
