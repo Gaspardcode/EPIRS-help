@@ -22,11 +22,11 @@ function IntroductionSection() {
 function Consignes(){
     return (
         <Toggle title="Consignes" color="info">
-            <P>Voici un TP de soutien, faisant office d'exam blanc, vous étant proposé pour préparer l'exam.
+            <P>Voici un TP de soutien, faisant office d'exam blanc, vous étant proposé pour préparer l'exam.</P>
             <div className="h-4"/>
             <P>Ce Tp est censé pouvoir être réalisé en 3h de temps, cependant aucun stress si vous ne l'avez pas fini, il est légèrement plus long que l'exam.</P>
             <div className="h-4"/>
-            <P>Bonnes révisions et n'hésitez pas à poser des questions au besoin, que ce soit sur discord.
+            <P>Bonnes révisions et n'hésitez pas à poser des questions au besoin, que ce soit sur discord.</P>
         </Toggle>
     )
 }
