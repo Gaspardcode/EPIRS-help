@@ -22,11 +22,11 @@ function IntroductionSection() {
 function Consignes(){
     return (
         <Toggle title="Consignes" color="info">
-            <P>Voici le TP qui vous es proposé en collaboration avec votre association de révisions préférée: <i>BackToBasics</i>.</P>
+            <P>Voici un TP de soutien, faisant office d'exam blanc, vous étant proposé pour préparer l'exam.
             <div className="h-4"/>
             <P>Ce Tp est censé pouvoir être réalisé en 3h de temps, cependant aucun stress si vous ne l'avez pas fini, il est légèrement plus long que l'exam.</P>
             <div className="h-4"/>
-            <P>Bonnes révisions et n'hésitez pass à poser des questions au besoin, que ce soit sur le discord de <a href="https://discord.com/invite/SJGWzkU2gd" target="_blank" className={"text-blue-700"}>BackToBasics</a> ou en <i>présentiel</i>.</P>
+            <P>Bonnes révisions et n'hésitez pas à poser des questions au besoin, que ce soit sur discord.
         </Toggle>
     )
 }
