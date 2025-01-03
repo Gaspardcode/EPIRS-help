@@ -350,7 +350,7 @@ String.Compare("Reverse", "7", StringComparison.Ordinal); // Retourne un entier 
                 </HelpMessage>
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
-                        {`public int GetMaxIndexCard(int start) { }`}
+                        {`public int GetMaxIndexCard(List<Card> cards, int start) { }`}
                     </CodeBlock>
                 </PrototypeMessage>
                 
