@@ -503,7 +503,7 @@ Console.WriteLine(game.Players.Peek().Name); // Affiche "Bob"`}
             <Toggle title="CreateDeck" color={"fundamentals"}>
                 <P>La classe <Code>GameManager</Code> doit avoir une méthode <Code>CreateDeck</Code> qui initialise le paquet de cartes de la partie.</P>
                 <div className="my-4"/>
-                <P>Le paquet de cartes doit contenir deux exemplaires de toutes les cartes de Uno (4 couleurs de 0 à 9, les cartes spéciales et les jokers).</P>
+                <P>Le paquet de cartes doit contenir deux exemplaires de toutes les cartes de Uno (4 couleurs de 0 à 9, les cartes spéciales et des jokers avec une pénalité de 0, 4, 8 uniquement).</P>
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
                         {`public void CreateDeck() { }`}
