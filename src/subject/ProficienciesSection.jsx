@@ -177,7 +177,7 @@ function JokerCardPart2()
 
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
-                        {`public void UseCapacity(Player actualPlayer, Queue<Player> players), List<Card> deck { }`}
+                        {`public void UseCapacity(Player actualPlayer, Queue<Player> players, List<Card> deck) { }`}
                     </CodeBlock>
                 </PrototypeMessage>
 
