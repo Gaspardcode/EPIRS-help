@@ -338,7 +338,7 @@ Console.WriteLine(points[player2]); // 60`}
                                     <li>Retirer le joueur actuel de la file</li>
                                     <li>Appeler la méthode <Code>Play</Code> du joueur actuel</li>
                                     <li>Si le joueur n'a plus de cartes, appeler la méthode <Code>CountPoints</Code> et retourner le résultat</li>
-                                    <li>Changer la couleur actuelle en fonction de la carte du dessus de la pile</li>
+                                    <li>Changer la couleur actuelle en fonction de la carte du dessus de la pile. Si la carte est un Joker, utilisez alors la méthode <Code>GetBestColor</Code> du joueur ayant utilisé la carte pour changer la couleur actuelle.</li>
                                 </UL>
                             </li>
                             <li>Retirer la carte du dessus de la pile et remettre toutes les cartes de la pile dans le paquet</li>
