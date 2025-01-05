@@ -413,7 +413,7 @@ function GamePart()
         <section className="w-full py-4">
             <h3 className="text-4xl"><Code>GameManager.cs</Code></h3>
             <Toggle title="Propriétés" color={"fundamentals"}>
-                <P>Ici, nous allons définir une classe <Code>Game</Code> qui représente une partie de Uno.</P>
+                <P>Ici, nous allons définir une classe <Code>GameManager</Code> qui représente une partie de Uno.</P>
                 <div className="my-4"/>
                 <P><u>La classe <Code>GameManager</Code> doit avoir les propriétés suivantes :</u></P>
                 <UL>
