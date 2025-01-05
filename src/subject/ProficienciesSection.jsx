@@ -170,14 +170,14 @@ function JokerCardPart2()
         <section className="w-full py-4">
             <h3 className="text-4xl text-red-500"><Code>Card/JokerCard.cs</Code></h3>
             <Toggle title="UseCapacity" color="proficiencies">
-                <P>La classe <Code>JokerCard</Code> est une carte spéciale qui permet de changer la couleur du jeu. Cependant ici nous ne gèreront pas le changement de couleur (qui se fera dans une autre fonction). Nous allons simplement faire piocher des cartes au joeurs suiavnts en fonction du malus de la carte.</P>
+                <P>La classe <Code>JokerCard</Code> est une carte spéciale qui permet de changer la couleur du jeu. Cependant ici nous ne gèreront pas le changement de couleur (qui se fera dans une autre fonction). Nous allons simplement faire piocher des cartes au joueur suivant en fonction du malus de la carte.</P>
                 <P>La méthode <Code>UseCapacity</Code> prend en paramètre le joueur actuel et la file de joueurs. Elle fait piocher des cartes au joueur suivant en fonction du malus de la carte.</P>
                 <P>La fonction remet ensuite le joueur actuel puis le joueur suivant dans la file.</P>
                 <P>Il est important de noter que le joueur actuel doit être remis dans la file avant le prochain joueur.</P>
 
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
-                        {`public void UseCapacity(Player actualPlayer, Queue<Player> players), List<Card> deck { }`}
+                        {`public void UseCapacity(Player actualPlayer, Queue<Player> players, List<Card> deck) { }`}
                     </CodeBlock>
                 </PrototypeMessage>
 
@@ -314,7 +314,7 @@ Console.WriteLine(points[player2]); // 60`}
             </Toggle>
             
             <Toggle title="DealCards" color="proficiencies">
-                <P>La méthode <Code>DealCards</Code> distribue 7 cartes à chaque joueur. Elle doit appeler la méthode <Code>DrawCard</Code> à chaque fois.</P>
+                <P>La méthode <Code>DealCards</Code> distribue 7 cartes à chaque joueur. Elle doit appeler la méthode <Code>DrawCard</Code> à chaque fois. Les cartes devront être disribuées comme dans la vraie vie. Par exemple si il y a 3 joueurs: 1-2-3-1-2-3-1-...</P>
                 
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
@@ -338,7 +338,7 @@ Console.WriteLine(points[player2]); // 60`}
                                     <li>Retirer le joueur actuel de la file</li>
                                     <li>Appeler la méthode <Code>Play</Code> du joueur actuel</li>
                                     <li>Si le joueur n'a plus de cartes, appeler la méthode <Code>CountPoints</Code> et retourner le résultat</li>
-                                    <li>Changer la couleur actuelle en fonction de la carte du dessus de la pile</li>
+                                    <li>Changer la couleur actuelle en fonction de la carte du dessus de la pile. Si la carte est un Joker, utilisez alors la méthode <Code>GetBestColor</Code> du joueur ayant utilisé la carte pour changer la couleur actuelle.</li>
                                 </UL>
                             </li>
                             <li>Retirer la carte du dessus de la pile et remettre toutes les cartes de la pile dans le paquet</li>

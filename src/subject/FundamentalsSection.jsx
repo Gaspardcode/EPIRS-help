@@ -188,7 +188,7 @@ function JokerCardPart()
         <section className="w-full py-4">
             <h3 className="text-4xl"><Code>Card/JokerCard.cs</Code></h3>
             <Toggle title="Fields" color={"fundamentals"}>
-                <P>Ici, nous allons définir une classe <Code>JokerCard</Code> qui représente une carte de Uno spéciale (exemple: "Joker" noir).</P>
+                <P>Ici, nous allons définir une classe <Code>JokerCard</Code> qui représente une carte de Uno spéciale (exemple: "Joker").</P>
                 <div className="my-4"/>
                 <P>La classe <Code>JokerCard</Code> doit hériter de <Code>Card</Code>.</P>
                 <div className="my-4"/>
@@ -200,7 +200,7 @@ function JokerCardPart()
             <Toggle title="Constructeur" color={"fundamentals"}>
                 <P>La classe <Code>JokerCard</Code> doit avoir un constructeur qui initialise les attributs <Code>Value</Code> et <Code>_penalty</Code> à partir de <Code>penalty</Code> passé en paramètre.</P>
                 <div className="my-4"/>
-                <P>La veleur d'une carte Joker est <Code>{`"Joker{Nb}"`}</Code>.</P>
+                <P>La valeur d'une carte Joker est <Code>{`"Joker{penalty}"`}</Code>.</P>
                 <P>La pénalité doit être un multiple de 2 et ne doit pas être supérieure (strict) à 8.</P>
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
@@ -350,7 +350,7 @@ String.Compare("Reverse", "7", StringComparison.Ordinal); // Retourne un entier 
                 </HelpMessage>
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
-                        {`public int GetMaxIndexCard(int start) { }`}
+                        {`public int GetMaxIndexCard(List<Card> cards, int start) { }`}
                     </CodeBlock>
                 </PrototypeMessage>
                 
@@ -413,7 +413,7 @@ function GamePart()
         <section className="w-full py-4">
             <h3 className="text-4xl"><Code>GameManager.cs</Code></h3>
             <Toggle title="Propriétés" color={"fundamentals"}>
-                <P>Ici, nous allons définir une classe <Code>Game</Code> qui représente une partie de Uno.</P>
+                <P>Ici, nous allons définir une classe <Code>GameManager</Code> qui représente une partie de Uno.</P>
                 <div className="my-4"/>
                 <P><u>La classe <Code>GameManager</Code> doit avoir les propriétés suivantes :</u></P>
                 <UL>
@@ -503,7 +503,7 @@ Console.WriteLine(game.Players.Peek().Name); // Affiche "Bob"`}
             <Toggle title="CreateDeck" color={"fundamentals"}>
                 <P>La classe <Code>GameManager</Code> doit avoir une méthode <Code>CreateDeck</Code> qui initialise le paquet de cartes de la partie.</P>
                 <div className="my-4"/>
-                <P>Le paquet de cartes doit contenir deux exemplaires de toutes les cartes de Uno (4 couleurs de 0 à 9, les cartes spéciales et les jokers).</P>
+                <P>Le paquet de cartes doit contenir deux exemplaires de toutes les cartes de Uno (4 couleurs de 0 à 9, les cartes spéciales et des jokers avec une pénalité de 0, 4, 8 uniquement).</P>
                 <PrototypeMessage>
                     <CodeBlock language="language-csharp">
                         {`public void CreateDeck() { }`}
