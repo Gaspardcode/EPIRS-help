@@ -8,10 +8,10 @@ function CorrectionPage() {
           <Nav page="correction"/>
           <section className="w-full p-16">
               <h2 className="text-6xl font-bold">Correction</h2>
-              {/*<p className="text-2xl italic text-red-700">This part will be released later.</p>*/}
-              <p className="text-2xl italic text-red-700">Ceci est une proposition de correction, ce n'est pas grave si vou n'avez pas exactement le même code.</p>
+              <p className="text-2xl italic text-red-700">This part is not available anymore.</p>
+{/*               <p className="text-2xl italic text-red-700">Ceci est une proposition de correction, ce n'est pas grave si vou n'avez pas exactement le même code.</p> */}
               <div className="h-4"/>
-              <GitLabLinkButton repo="gabriel.dezon/unoadventure"/>
+{/*               <GitLabLinkButton repo="gabriel.dezon/unoadventure"/> */}
           </section>
       </>
   );
