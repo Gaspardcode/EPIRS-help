@@ -10,9 +10,9 @@ function FundamentalsSection() {
         <>
             <section className="w-full px-16 py-8">
                 <h2 className="text-6xl font-bold pb-4">Fundamentals</h2>
-                <LcsPart />
                 <CountVowels />
                 <FindFirst />
+                <LcsPart />
                 <MasterMatcher />
             </section>
         </>
@@ -23,19 +23,72 @@ function LcsPart() {
     return (
         <section className="w-full py-4">
             <h3 className="text-4xl text-red-500"><Code>lcs/lcs.rs</Code></h3>
-            <Toggle title="LCSequence" color={"fundamentals"}>
-                <P>The idea is simply to find the (L)ongest (C)ommon (S)tring of two String. Be careful, a sequence is not a subsequence. Basically you got the simpler version.</P>
+            <Toggle title="LCSubstring" color={"fundamentals"}>
+                <P>The idea is simply to find the (L)ongest (C)ommon (P)refix of two String.</P> 
                 <HelpMessage>
                     <P>To ease indexing, you may want to cast the Strings to Vectors of char. Look up to collect the string if you are lost. Keep in mind collect() has a cost of O(n), but index using chars().nth() also does.</P>
                 </HelpMessage>
                 <PrototypeMessage>
                     <CodeBlock language="language-rust">
-                        {`pub fn lcs(s1: &String, s2: &String) -> String { /* Todo */ }`}
+                        {`pub fn lcp(s1: String, s2: String) -> String { /* Todo */ }`}
                     </CodeBlock>
                 </PrototypeMessage>
                 <TestMessage>
                     <CodeBlock language="language-rust">
-                        {`hello`}
+                        {`
+mod lcp;
+#[cfg(test)]
+mod lcp_test {
+    use crate::lcp::lcp;
+
+    macro_rules! lcp_tests {
+        ($($decode_name:ident: $encode_name:ident: $args:expr,)*) => {
+            $(
+                #[test]
+                fn $encode_name() {
+                    let (s1, s2, expected) = $args;
+                    let result = lcp(&String::from(s1), &String::from(s2));
+                    assert_eq!(result, String::from(expected));
+                }
+
+                #[test]
+                fn $decode_name() {
+                    let (s1, s2, expected) = $args;
+                    let result = lcp(&String::from(s2), &String::from(s1));
+                    assert_eq!(result, String::from(expected));
+                }
+            )*
+        }
+    }
+
+    lcp_tests! {
+        lcp_same:lcp_same_reverse: (
+        "i1234e",
+        "i1234e",
+        "i1234e",
+        ),
+        lcp_empty:lcp_empty_reverse: (
+        "",
+        "",
+        "",
+        ),
+        lcp_subset:lcp_subset_reverse: (
+        "rtyuiopiuytfghu765",
+        "rtyuiopasdfghjkl",
+        "rtyuiop",
+        ),
+        lcp_still_empty:lcp_still_empty_reverse: (
+        "qwertyuiop",
+        "zxcvbnmnbvcxcvbn",
+        "",
+        ),
+        lcp_unicode:lcp_unicode_reverse: (
+        "🤩🤩😇🤩😇",
+        "🤩🤩😇😇😇😇😇",
+        "🤩🤩😇",
+        ),
+    }
+}`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>

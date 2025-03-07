@@ -39,10 +39,7 @@ function Architecture() {
 ├── .gitignore
 ├── README
 ├── src
-│    ├── lcs
-│    │      │       
-│    │      │── *.rs
-│    │      └── lcs.rs (mandatory for tests)
+│    ├── lcp.rs
 │    ├── findFirst
 │    │      │        
 │    │      └── *.rs
