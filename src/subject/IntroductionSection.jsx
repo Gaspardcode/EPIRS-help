@@ -22,9 +22,9 @@ function IntroductionSection() {
 function Consignes() {
     return (
         <Toggle title="Consignes" color="info">
-            <P>Voici un TP de soutien, faisant office d'exam blanc, vous étant proposé pour préparer l'exam.</P>
+            <P>Voici un TP de soutien, vous étant proposé pour préparer l'exam. Ce TP est surement plus dur que votre examen a venir.</P>
             <div className="h-4" />
-            <P>Ce Tp est censé pouvoir être réalisé en 3h de temps, cependant aucun stress si vous ne l'avez pas fini, il est légèrement plus long que l'exam.</P>
+            <P>La partie Fondamentaux de ce TP est réalisable en 1 à 2 heures. Nous nous attendons à ce que vous ayez au moins (ou presque) fini cette partie avant votre code review.</P>
             <div className="h-4" />
             <P>Bonnes révisions et n'hésitez pas à poser des questions au besoin, que ce soit sur discord.</P>
         </Toggle>
