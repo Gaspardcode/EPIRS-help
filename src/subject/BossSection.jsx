@@ -10,7 +10,7 @@ function BossSection() {
         <>
             <section className="w-full px-16 py-8">
                 <h2 className="text-6xl font-bold pb-4">Boss</h2>
-                <P>Either AI has been very kind to you, or you really deserve a more complicated exercise</P>
+                <P>Seems like you deserve a trickier exercise</P>
                 <div className="my-4" />
                 <MasterMatcher />
             </section>
