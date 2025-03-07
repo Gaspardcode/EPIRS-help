@@ -44,9 +44,6 @@ function Architecture() {
 │    │      │       
 │    │      │── *.rs
 │    │      └── lcs.rs (mandatory for tests)
-│    ├── hashmap
-│    │      │        
-│    │      └── *.rs
 │    ├── findFirst
 │    │      │        
 │    │      └── *.rs
