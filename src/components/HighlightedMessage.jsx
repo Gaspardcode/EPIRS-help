@@ -121,4 +121,20 @@ function PrototypeMessage({children}) {
     );
 }
 
-export { HelpMessage, AllowedMessage, ForbiddenMessage, WarningMessage, TestMessage, HistoryMessage, PrototypeMessage };
+function TestMessage({children}) {
+    return (
+        <div className="my-4">
+            <div className="-mb-2">
+            <span className="bg-red-950 px-2 py-1 rounded-xl text-white font-semibold text-xl">
+                <FontAwesomeIcon icon={faCode} className="mr-1" />
+                Tests
+            </span>
+            </div>
+            <div className="bg-stone-300 rounded-lg p-4">
+                {children}
+            </div>
+        </div>
+    );
+}
+
+export { HelpMessage, AllowedMessage, ForbiddenMessage, WarningMessage, TestMessage, HistoryMessage, PrototypeMessage, TestMessage};

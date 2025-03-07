@@ -14,7 +14,6 @@ function FundamentalsSection() {
                 <LcsPart />
                 <CountVowels />
                 <FindFirst />
-                <HashmapPart />
                 <MasterMatcher />
             </section>
         </>
@@ -25,13 +24,18 @@ function LcsPart() {
     return (
         <section className="w-full py-4">
             <h3 className="text-4xl text-red-500"><Code>lcs/lcs.rs</Code></h3>
-            <Toggle title="LCS" color={"fundamentals"}>
-                <P>Ceci est une bla bla .</P>
+            <Toggle title="LCSequence" color={"fundamentals"}>
+                <P>The idea is simply to find the (L)ongest (C)ommon (S)tring of two String. Be careful, a sequence is not a subsequence. Basically you got the simpler version.</P>
                 <PrototypeMessage>
                     <CodeBlock language="language-rust">
                         {`pub fn lcs(String a, String b) -> String { /* Todo */ }`}
                     </CodeBlock>
                 </PrototypeMessage>
+                <TestMessage>
+                    <CodeBlock language="language-rust">
+                        {``}
+                    </CodeBlock>
+                </TestMessage>
             </Toggle>
         </section>
     );
@@ -66,25 +70,6 @@ function FindFirst() {
                         {`pub fn find_first(s: &str, pattern: &str) -> usize {}`}
                     </CodeBlock>
                 </PrototypeMessage>
-            </Toggle>
-        </section>
-    );
-
-}
-
-function HashmapPart() {
-    return (
-        <section className="w-full py-4">
-            <h3 className="text-4xl"><Code>hashmap/hashmap.rs</Code></h3>
-            <Toggle title="Hashmap" color={"fundamentals"}>
-                <P>Ceci est une énumération qui représente les quatre couleurs des cartes de Uno.</P>
-                <P>Vous devez définir les couleurs suivantes, leur associant la valeur entre parenthèses.</P>
-                <UL>
-                    <li><Code>ColorGreen</Code> (0)</li>
-                    <li><Code>ColorRed</Code> (1)</li>
-                    <li><Code>ColorBlue</Code> (2)</li>
-                    <li><Code>ColorYellow</Code> (3)</li>
-                </UL>
             </Toggle>
         </section>
     );

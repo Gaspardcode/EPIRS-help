@@ -41,8 +41,9 @@ function Architecture() {
 ├── README
 ├── src
 │    ├── lcs
-│    │      │        
-│    │      └── *.rs
+│    │      │       
+│    │      │── *.rs
+│    │      └── lcs.rs (mandatory for tests)
 │    ├── hashmap
 │    │      │        
 │    │      └── *.rs
