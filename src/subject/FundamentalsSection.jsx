@@ -2,8 +2,7 @@ import React from "react";
 import Toggle from "../components/Toggle.jsx";
 import P from "../components/P.jsx";
 import CodeBlock from "../components/CodeBlock.jsx";
-import { PrototypeMessage } from "../components/HighlightedMessage.jsx";
-import UL from "../UL.jsx";
+import { HelpMessage, PrototypeMessage, TestMessage } from "../components/HighlightedMessage.jsx";
 import Code from "../components/Code.jsx";
 
 function FundamentalsSection() {
@@ -26,14 +25,17 @@ function LcsPart() {
             <h3 className="text-4xl text-red-500"><Code>lcs/lcs.rs</Code></h3>
             <Toggle title="LCSequence" color={"fundamentals"}>
                 <P>The idea is simply to find the (L)ongest (C)ommon (S)tring of two String. Be careful, a sequence is not a subsequence. Basically you got the simpler version.</P>
+                <HelpMessage>
+                    <P>To ease indexing, you may want to cast the Strings to Vectors of char. Look up to collect the string if you are lost. Keep in mind collect() has a cost of O(n), but index using chars().nth() also does.</P>
+                </HelpMessage>
                 <PrototypeMessage>
                     <CodeBlock language="language-rust">
-                        {`pub fn lcs(String a, String b) -> String { /* Todo */ }`}
+                        {`pub fn lcs(s1: &String, s2: &String) -> String { /* Todo */ }`}
                     </CodeBlock>
                 </PrototypeMessage>
                 <TestMessage>
                     <CodeBlock language="language-rust">
-                        {``}
+                        {`hello`}
                     </CodeBlock>
                 </TestMessage>
             </Toggle>
