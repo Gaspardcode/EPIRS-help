@@ -5,6 +5,7 @@ const colors = {
     'fundamentals': 'bg-green-900',
     'proficiencies': 'bg-red-900',
     'correction': 'bg-purple-900',
+    'boss': 'bg-purple-600',
 }
 
 function Toggle({title, color, children}) {

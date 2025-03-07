@@ -5,6 +5,7 @@ import IntroductionSection from "./IntroductionSection";
 import SubjectNav from "../components/SubjectNav.jsx";
 import FundamentalsSection from "./FundamentalsSection.jsx";
 import ProficienciesSection from "./ProficienciesSection.jsx";
+import BossSection from "./BossSection.jsx";
 
 const Redirect = () => { window.location.href = '/error'; return null; }
 function SubjectPage() {
@@ -16,6 +17,7 @@ function SubjectPage() {
             <IntroductionSection/>
             <FundamentalsSection/>
             <ProficienciesSection/>
+            <BossSection/>
         </>
     )
 }
