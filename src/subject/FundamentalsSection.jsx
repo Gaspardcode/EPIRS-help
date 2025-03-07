@@ -22,8 +22,8 @@ function FundamentalsSection() {
 function LcsPart() {
     return (
         <section className="w-full py-4">
-            <h3 className="text-4xl text-red-500"><Code>lcs/lcs.rs</Code></h3>
-            <Toggle title="LCSubstring" color={"fundamentals"}>
+            <h3 className="text-4xl text-red-500"><Code>lcp.rs</Code></h3>
+            <Toggle title="LCP" color={"fundamentals"}>
                 <P>The idea is simply to find the (L)ongest (C)ommon (P)refix of two String.</P> 
                 <HelpMessage>
                     <P>To ease indexing, you may want to cast the Strings to Vectors of char. Look up to collect the string if you are lost. Keep in mind collect() has a cost of O(n), but index using chars().nth() also does.</P>
