@@ -23,7 +23,7 @@ function Consignes() {
         <Toggle title="Consignes" color="info">
             <P>Voici un TP de soutien, vous étant proposé pour préparer l'exam. Ce TP est surement plus dur que votre examen a venir.</P>
             <div className="h-4" />
-            <P>La partie Fondamentaux de ce TP est réalisable en 1 à 2 heures. Nous nous attendons à ce que vous ayez au moins (ou presque) fini les Fondamentaux avant votre code review.</P>
+            <P>La partie Fondamentaux de ce TP est réalisable en 1 à 2 heures. Nous nous attendons à ce que vous ayez au moins fini les 3 premiers exos avant votre code review.</P>
             <div className="h-4" />
             <P>Bon TP et n'hésitez pas à poser des questions au besoin, d'abord à Claude, puis sur discord.</P>
         </Toggle>

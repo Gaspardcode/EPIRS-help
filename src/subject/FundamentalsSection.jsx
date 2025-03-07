@@ -2,7 +2,7 @@ import React from "react";
 import Toggle from "../components/Toggle.jsx";
 import P from "../components/P.jsx";
 import CodeBlock from "../components/CodeBlock.jsx";
-import { HelpMessage, PrototypeMessage, TestMessage } from "../components/HighlightedMessage.jsx";
+import { HelpMessage, PrototypeMessage, TestMessage, WarningMessage } from "../components/HighlightedMessage.jsx";
 import Code from "../components/Code.jsx";
 
 function FundamentalsSection() {
@@ -10,9 +10,10 @@ function FundamentalsSection() {
         <>
             <section className="w-full px-16 py-8">
                 <h2 className="text-6xl font-bold pb-4">Fundamentals</h2>
-                <CountVowels />
-                <FindFirst />
                 <LcsPart />
+                <CountVowels />
+                <Preproc />
+                <FindFirst />
                 <MasterMatcher />
             </section>
         </>
@@ -95,7 +96,27 @@ mod lcp_test {
         </section>
     );
 }
-
+function Preproc() {
+    return (
+        <section className="w-full py-4">
+            <h3 className="text-4xl text-red-500"><Code>preproc.rs</Code></h3>
+            <Toggle title="preproc" color={"fundamentals"}>
+                <P> Here you must mimic a simplified behavior of the preprocessor and remove all comments from the given string.
+                    We arbitrarily define a comment as a sequence of character beginning with '#' and ending with a newline. 
+                    </P>
+                <PrototypeMessage>
+                    <CodeBlock language="language-rust">
+                        {` pub fn preproc(s: String) -> String {/*TODO*/}`}
+                    </CodeBlock>
+                </PrototypeMessage>
+                <WarningMessage>
+                <P>A nice challenge would be to make this function without if/else. Use <a className="text-green-700" href="https://doc.rust-lang.org/book/ch19-03-pattern-syntax.html">pattern matching </a>instead.</P>
+                </WarningMessage>
+       
+            </Toggle>
+        </section>
+    );
+}
 function CountVowels() {
     return (
         <section className="w-full py-4">
