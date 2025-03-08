@@ -101,7 +101,7 @@ function Preproc() {
             <h3 className="text-4xl text-red-500"><Code>preproc.rs</Code></h3>
             <Toggle title="preproc" color={"fundamentals"}>
                 <P> Here you must mimic a simplified behavior of the preprocessor and remove all comments from the given string.
-                    We arbitrarily define a comment as a sequence of character beginning with '#' and ending with a newline. 
+                    We arbitrarily define a comment as a sequence of character beginning with '#' and ending with a newline OR an EOF. 
                     </P>
                 <PrototypeMessage>
                     <CodeBlock language="language-rust">
@@ -111,6 +111,57 @@ function Preproc() {
                 <WarningMessage>
                 <P>A nice challenge would be to make this function without if/else. Use <a className="text-green-700" href="https://doc.rust-lang.org/book/ch19-03-pattern-syntax.html">pattern matching </a>instead.</P>
                 </WarningMessage>
+                <TestMessage>
+                    <CodeBlock>
+                        {`
+mod preproc;
+#[cfg(test)]
+mod preproc_test {
+    use crate::preproc::preproc;
+
+    macro_rules! preproc_tests {
+        ($($name:ident: $args:expr,)*) => {
+            $(
+                #[test]
+                fn $name() {
+                    let (data, expected) = $args;
+                    let result = preproc(String::from(data));
+                    assert_eq!(result, String::from(expected));
+                }
+            )*
+        }
+    }
+
+    preproc_tests! {
+        no_comment: (
+        "i1234e",
+        "i1234e",
+        ),
+        empty: (
+        "",
+        "",
+        ),
+        tricky: (
+        "#\\n",
+        "\\n",
+        ),
+        empty2: (
+        "#",
+        "",
+        ),
+        two_comment: (
+        "1#2\\n#345\\n6",
+        "1\\n\\n6",
+        ),
+        one_comment: (
+        "qwerty#yuiop\\nhaha",
+        "qwerty\\nhaha",
+        ),
+    }
+}`}
+                    </CodeBlock>
+
+                </TestMessage>
        
             </Toggle>
         </section>
