@@ -9,7 +9,7 @@ import BossSection from "./BossSection.jsx";
 
 const Redirect = () => { window.location.href = '/error'; return null; }
 function SubjectPage() {
-    document.title = "Subject | UnoAdventure";
+    document.title = "Subject | Rust prep";
     return (
         <>
             <Nav page="subject"/>

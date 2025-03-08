@@ -47,7 +47,7 @@ function Architecture() {
 │    └── advanced (optional)
 │           │        
 │           └── *.rs
-├── test (optionnal)
+├── tests (optionnal)
 │    │        
 │    └── *.rs
 └── Cargo.toml`}

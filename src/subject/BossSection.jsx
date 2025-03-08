@@ -74,7 +74,7 @@ function MasterMatcher() {
 
                 <P>Here’s the function signature you'll be implementing:</P>
                 <PrototypeMessage>
-                    <CodeBlock language="rust">
+                    <CodeBlock language="language-rust">
                         {`pub fn master_matcher(pattern: &str, string: &str) -> bool {
     unimplemented!();
 }`}

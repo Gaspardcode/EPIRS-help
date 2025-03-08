@@ -4,6 +4,7 @@ import P from "../components/P.jsx";
 import CodeBlock from "../components/CodeBlock.jsx";
 import { HelpMessage, PrototypeMessage, TestMessage, WarningMessage } from "../components/HighlightedMessage.jsx";
 import Code from "../components/Code.jsx";
+import "prismjs/components/prism-rust";
 
 function FundamentalsSection() {
     return (
@@ -35,8 +36,7 @@ function LcsPart() {
                 </PrototypeMessage>
                 <TestMessage>
                     <CodeBlock language="language-rust">
-                        {`
-mod lcp;
+                        {`mod lcp;
 #[cfg(test)]
 mod lcp_test {
     use crate::lcp::lcp;
@@ -112,9 +112,8 @@ function Preproc() {
                 <P>A nice challenge would be to make this function without if/else. Use <a className="text-green-700" href="https://doc.rust-lang.org/book/ch19-03-pattern-syntax.html">pattern matching </a>instead.</P>
                 </WarningMessage>
                 <TestMessage>
-                    <CodeBlock>
-                        {`
-mod preproc;
+                    <CodeBlock language="language-rust">
+                        {`mod preproc;
 #[cfg(test)]
 mod preproc_test {
     use crate::preproc::preproc;
@@ -160,9 +159,7 @@ mod preproc_test {
     }
 }`}
                     </CodeBlock>
-
                 </TestMessage>
-       
             </Toggle>
         </section>
     );
