@@ -23,7 +23,7 @@ function StrTok() {
         <section className="w-full py-4">
             <h3 className="text-4xl text-red-500"><Code>advanced/advanced.rs</Code></h3>
             <Toggle title="strtok" color={"proficiencies"}>
-                <P>The strtok function is used to tokenize (split) a string into smaller parts (tokens) based on a specified delimiter...Again you should check the man page or the following <a href="https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm" target="_blank" className="text-red-500"> page </a>for more information.</P>
+                <P>The strtok function is used to tokenize (split) a string into smaller parts (tokens) based on a specified delimiter... You should check the man page or the following <a href="https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm" target="_blank" className="text-red-500"> page </a>for more information.</P>
                 <PrototypeMessage> 
                     <CodeBlock language="language-rust">
                         {`
